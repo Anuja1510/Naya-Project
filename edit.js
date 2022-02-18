@@ -1,4 +1,4 @@
-// Get all variables
+
 const imgDiv = document.querySelector('.profile-pic-div');
 const img = document.querySelector('#photo');
 const file = document.querySelector('#file');
@@ -16,7 +16,6 @@ imgDiv.addEventListener('mouseleave', function(){
     uploadBtn.style.display = "none";
 });
 
-//lets work for image showing functionality when we choose an image to upload
 
 //when we choose a foto to upload
 
@@ -26,7 +25,7 @@ file.addEventListener('change', function(){
 
     if (choosedFile) {
 
-        const reader = new FileReader(); //FileReader is a predefined function of JS
+        const reader = new FileReader(); 
 
         reader.addEventListener('load', function(){
             img.setAttribute('src', reader.result);
