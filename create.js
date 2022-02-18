@@ -1,4 +1,4 @@
-// Get all variables
+
 const imgDiv = document.querySelector('.profile-pic-div');
 const img = document.querySelector('#photo');
 const file = document.querySelector('#file');
@@ -26,7 +26,7 @@ file.addEventListener('change', function(){
 
     if (choosedFile) {
 
-        const reader = new FileReader(); //FileReader is a predefined function of JS
+        const reader = new FileReader(); 
 
         reader.addEventListener('load', function(){
             img.setAttribute('src', reader.result);
