@@ -2,7 +2,7 @@ const question = document.getElementById("question");
 const choices = Array.from(document.getElementsByClassName("choice-text"));
 const questionCounterText = document.getElementById("questionCounter");
 const scoreText = document.getElementById("score");
-var count = 20;
+var count = 0;
 let currentQuestion = {};
 let acceptingAnswers = false;
 let score = 0;
@@ -69,7 +69,10 @@ getNewQuestion = () => {
   availableQuesions.splice(questionIndex, 1);
   acceptingAnswers = true;
 };
-
+var interval = setInterval(function(){
+  document.getElementById('time').innerHTML=count;
+  count++;
+  }, 1000);
 choices.forEach(choice => {
   choice.addEventListener("click", e => {
     if (!acceptingAnswers) return;
@@ -85,10 +88,14 @@ choices.forEach(choice => {
       incrementScore(CORRECT_BONUS);
     }
 
+
     selectedChoice.parentElement.classList.add(classToApply);
 
     setTimeout(() => {
+
+    alert("Time is:"+interval);
       selectedChoice.parentElement.classList.remove(classToApply);
+
       getNewQuestion();
     }, 1000);
   });
@@ -98,7 +105,7 @@ incrementScore = num => {
   score += num;
   scoreText.innerText = score;
 };
-var interval = setInterval(function(){
+/*var interval = setInterval(function(){
   document.getElementById('time').innerHTML=count;
   count--;
   if (count === -2){
@@ -108,6 +115,6 @@ var interval = setInterval(function(){
     alert("You're out of time!");
     return window.location.assign("end.html");
   }
-}, 1000);
+}, 1000);*/
 
 startGame();
